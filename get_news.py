@@ -8,7 +8,7 @@ from datetime import datetime
 def get_news(start_date=datetime.now().strftime('%Y-%m-%d'), end_date=datetime.now().strftime('%Y-%m-%d')):
     # get the data from news api
     url = ('https://newsapi.org/v2/everything?'
-           'q=technology&AND(news)'
+           'q=technology&AND(news OR science)'
            f'from={start_date}&'
            f'to={end_date}&'
            'sortBy=popularity&'
