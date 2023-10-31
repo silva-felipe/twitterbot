@@ -9,8 +9,6 @@ import sqlite3
 import schedule
 import time
 
-from hashtag_generator import genrate_hashtag
-
 def tweeter_authentication():
     # load env variables
     print("✅ Load env variables")
@@ -97,9 +95,7 @@ def job():
         fp.write(response.content)
         fp.close()
 
-    hashtags = genrate_hashtag(text=tweet[3])
-
-    tweet_to_post = f'{tweet[2]} | {tweet[3]} {hashtags} | {tweet[4]}'
+    tweet_to_post = f'{tweet[2]} | {tweet[3]} | {tweet[4]}'
 
     # create_media_tweet
     create_media_tweet(api=api, client=client, media_path=f"{tweet[1]}.png", text=tweet_to_post)
