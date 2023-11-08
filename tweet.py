@@ -104,7 +104,7 @@ def job():
     # set tweet as posted in the database
     conn = sqlite3.connect('tweets.db')
     c = conn.cursor()
-    c.execute("UPDATE tweets SET posted = 1, posted_at_tweet = strftime('%Y-%m-%d %H-%M-%S','now') WHERE id = ?",
+    c.execute("UPDATE tweets SET posted = 1, posted_at_tweet = strftime('%Y-%m-%d %H:%M:%S','now') WHERE id = ?",
               (tweet[0],))
     conn.commit()
     conn.close()
