@@ -5,7 +5,7 @@ from get_db_tweets import get_hash_id_db_tweets
 
 
 # get the data from news api
-df_news_api_to_inset_db = get_news('2023-10-01', '2023-10-01')
+df_news_api_to_inset_db = get_news('2023-11-01', '2023-11-08')
 
 # get the hash_id from the dataframe
 articles_in_db = get_hash_id_db_tweets()
