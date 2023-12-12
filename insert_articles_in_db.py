@@ -1,11 +1,14 @@
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timedelta
 from get_news import get_news
 from get_db_tweets import get_hash_id_db_tweets
 
+# set start_date as one day before today
+start_date = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+end_date = datetime.now().strftime('%Y-%m-%d')
 
 # get the data from news api
-df_news_api_to_inset_db = get_news('2023-11-24', '2023-12-11')
+df_news_api_to_inset_db = get_news(start_date=start_date, end_date=end_date)
 
 # get the hash_id from the dataframe
 articles_in_db = get_hash_id_db_tweets()
